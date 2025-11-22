@@ -1,0 +1,270 @@
+/* 重置 & 全局设置 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  color: #333;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  background: #f2f3f5;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  min-height: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.hero-content {
+  position: absolute;
+  z-index: 10;
+  text-align: center;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.hero-logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #2c3e50;
+  z-index: 10;
+}
+
+.hero-content h1 {
+  display: none; /* hide original h1, we'll use top-left logo instead */
+}
+
+.hero-content p {
+  font-size: 3rem !important;
+  font-weight: bold;
+  color: #FF6A00 !important; /* 橙色 */
+  margin: 0;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140%;
+  height: auto;
+  min-height: 100%;
+  pointer-events: none;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  opacity: 0.85;
+}
+
+/* 主体内容区 */
+main {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #2c3e50; /* 深色但不黑 */
+}
+
+section p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* 联系我们链接样式 */
+.contact a {
+  color: #3366cc; /* 一种强调色 */
+  text-decoration: none;
+  border-bottom: 1px dashed #3366cc;
+  transition: color 0.3s;
+}
+
+.contact a:hover {
+  color: #254a9e;
+  border-bottom: 1px solid #254a9e;
+}
+
+/* 页脚 */
+footer {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #ececec;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* 响应式调整 */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+  section h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* 新增 App 预览区块 */
+.app-preview {
+  text-align: left;
+  margin-bottom: 40px;
+}
+
+.app-preview h2 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+
+/* QR 图片蒙层 */
+.qr-placeholder {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 16px;
+  background-color: #f0f0f3;
+  background-size: cover;
+  background-position: center;
+  border: 1px solid #d0d0d5;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* 半透明蒙层 */
+.qr-placeholder::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.6); /* 白色半透明 */
+  z-index: 1;
+}
+
+/* 蒙层上的文字 */
+.qr-placeholder span {
+  position: relative;
+  z-index: 2; /* 保证文字显示在蒙层上 */
+  font-size: 1.5rem;
+  color: #777;
+  text-align: center;
+  padding: 10px;
+}
+
+/* QR 容器布局 */
+.qr-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.qr-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  position: relative; /* 用于蒙层定位 */
+}
+
+.qr-item p {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* 底部链接风格 */
+footer a {
+  color: #3366cc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: #254a9e;
+}
+
+
+@media (max-width: 600px) {
+  .qr-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .qr-item {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .qr-placeholder {
+    margin-left: 0;
+  }
+}
+
+/* 漂浮云朵动画 */
+@keyframes floatCloud {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(40px); }
+}
+
+/* 远山轻微视差动画 */
+@keyframes mountainParallax {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(12px); }
+}
+
+/* 英雄文字淡入动画 */
+@keyframes fadeInHero {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.hero-bg circle {
+  animation: floatCloud 6s ease-in-out infinite alternate;
+}
+
+.hero-bg path:nth-of-type(2) {
+  animation: mountainParallax 8s ease-in-out infinite alternate;
+}
+
+.hero-bg path:nth-of-type(3) {
+  animation: mountainParallax 10s ease-in-out infinite alternate;
+}
+
+.hero-bg path:nth-of-type(4) {
+  animation: mountainParallax 12s ease-in-out infinite alternate;
+}
