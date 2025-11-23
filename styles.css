@@ -31,9 +31,9 @@ body {
   z-index: 10;
   text-align: center;
   width: 100%;
-  top: 50%;
+  bottom: 40px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
 }
 
 .hero-logo {
@@ -46,15 +46,20 @@ body {
   z-index: 10;
 }
 
-.hero-content h1 {
-  display: none; /* hide original h1, we'll use top-left logo instead */
-}
+/*.hero-content h1 {
+  display: none;  hide original h1, we'll use top-left logo instead
+}*/
 
-.hero-content p {
-  font-size: 3rem !important;
+.hero-content h1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 3rem;
   font-weight: bold;
-  color: #FF6A00 !important; /* 橙色 */
-  margin: 0;
+  color: #FF6A00; /* 橙色 */
+  padding: 0 200px;
+  box-sizing: border-box;
 }
 
 .hero-bg {
