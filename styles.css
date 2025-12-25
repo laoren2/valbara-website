@@ -273,3 +273,20 @@ footer a:hover {
 .hero-bg path:nth-of-type(4) {
   animation: mountainParallax 12s ease-in-out infinite alternate;
 }
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  flex-wrap: nowrap; /* 保证不换行 */
+}
+
+.divider {
+  display: inline-block;
+  width: 1px;
+  height: 16px;
+  background: currentColor; /* 继承文字颜色 */
+  opacity: 0.6;
+}
